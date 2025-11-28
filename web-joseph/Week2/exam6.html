@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ex6</title>
+    <style>
+        h2 {
+            color: rgb(0, 225, 255);
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 24px;
+        }
+        input{
+            border-color: rgb(25, 0, 255);
+           
+        }
+    </style>
+</head>
+
+<body>
+    <h2> "โปรเเกรมเช็คอายุ"</h2>
+    <input id="input-age" placeholder="กรุณากรอกอายุ" type="number">
+    <button onclick="checkAge()">ตรวจสอบ</button>
+    <h1 id="age-msg">คุณอยู่ในวัย: </h1>
+
+    <script>
+        function checkAge() {
+            const ageInputElement = document.getElementById("input-age") //input
+            const age = ageInputElement.value
+            const ageMsgElement = document.getElementById('age-msg') //h1
+
+            if (age === "") {
+                alert('คุณยังไม่ได้ระบุอายุ') //เหมือน noti ที่แจ้งตอนกดปุ่ม synconusรันแบบบนลงล่าง  
+            }
+
+            const covertAgeToNumber = +age  //สามารถเปลื่ยน str เป็น number โดย number(age) หรือใส่ +age
+            if (covertAgeToNumber >= 60) { //if 
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: วัยผู้สูงอายุ'
+
+            } else if (covertAgeToNumber >= 25) { //
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: วัยทำงาน'
+            } else if (covertAgeToNumber >= 13) { //
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: วัยรุ่น'
+           } else {
+                ageMsgElement.innerText = 'คุณอยู่ในวัย: วัยเด็ก'
+        }   
+    }
+    </script>
+</body>
+
+</html>

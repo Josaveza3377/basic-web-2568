@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ทดสอบ Web Event</title>
+    <style>
+        body {
+            background-color: rgb(162, 245, 124);
+        }
+
+        h2 {
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+        }
+
+        input {
+            height: 50px;
+            width: 300px;
+            font-size: 30px;
+            border-radius: 10px;
+            color: rgb(255, 81, 0);
+        }
+
+        p {
+            font-size: 17px;
+            color: black;
+        }
+
+        select {
+            font-size: 15px;
+            padding: 9px;
+            border-radius: 10px;
+            color: rgb(255, 0, 0);
+            background-color: rgb(241, 255, 43);
+        }
+    </style>
+</head>
+<!--เขียนการบ้านให้ input type ทุกประเภท-->
+
+<body>
+    <h2> ทดสอบการอ่านข้อความจาก Input</h2>
+    <p id="show-message"> ข้อความที่อ่านได้: </p>
+    <input id="message-input" placeholder="กรุณากรอกข้อความ" type="text">
+    <!--type เอาไว้บอกประเภทข้อความ เช่น date email password file color -->
+
+    <h2>ทดสอบการเลือกแบบ Select </h2>
+    <p id='show-select'>ข้อความที่อ่านได้: </p>
+    <select id=select-input>
+        <option>โปรดเลือกตัวเลือกใดก็ได้</option>
+        <option>ตัวเลือกที่ 1</option>
+        <option>ตัวเลือกที่ 2</option>
+        <option>ตัวเลือกที่ 3</option>
+        <option>ตัวเลือกที่ 4</option>
+    </select>
+
+    <script>
+        const messageInputElement = document.getElementById('message-input')
+        messageInputElement.addEventListener("input", function () {
+            const message = this.value
+            const showMessageElement = document.getElementById('show-message')
+            showMessageElement.innerText = 'ข้อความที่อ่านได้: ' + message
+        })
+
+        const messageSelectElement = document.getElementById('select-input')
+        messageSelectElement.addEventListener("input", function () {
+            const message = this.value
+            const showMessageElement = document.getElementById('show-select')
+            showMessageElement.innerText = 'ข้อความที่อ่านได้: ' + message
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>EX.5</title>
+<Style>
+    h2 {
+        color:rgb(11, 27, 250);
+        font-size: 30px;
+    
+        
+    }
+    p{
+        color: rgb(253, 0, 118);
+        font-size: 30px;
+    }
+    input{
+        height: 20px;
+        padding: 0.5%;
+        width: 300px;
+        color: rgb(4, 0, 8);
+    }
+    select{
+        color: rgb(60, 255, 0);
+    }
+</Style>
+    </head>
+    <body>
+    <h2> "โปรดพิมชื่อ-นามสกุล"</h2>
+    <p id="show-name"> ชื่อ: </p>
+    <input id="name-input" placeholder="กรุณากรอกชื่อ-นามสกุล" type="text">
+     <button onclick="sayhello()">ตกลง</button>
+
+    <h2> "ภาษาโปรแกรมที่ชอบ" </h2>
+    <p id='show-lage'>คุณเลือกภาษา: </p>
+    <select id=select-lage>
+        <option>โปรดเลือกภาษา</option>
+        <option>Javascript</option>
+        <option>Python</option>
+        <option>GO</option>
+        <option>C++</option>
+        <option>C</option>
+        <option>Alien</option>
+        <option>human</option>
+        <option>sileterin</option>
+    </select>
+
+    <script>
+        const messageInputElement = document.getElementById('name-input')
+        messageInputElement.addEventListener("input", function () {
+            const message = this.value
+            const showMessageElement = document.getElementById('show-name')
+            showMessageElement.innerText = 'ยินดีต้อนรับ: ' + message
+        })
+
+        const messageSelectElement = document.getElementById('select-lage')
+        messageSelectElement.addEventListener("input", function () {
+            const message = this.value
+            const showMessageElement = document.getElementById('show-lage')
+            showMessageElement.innerText = 'ภาษาที่คุุณเลือกคือ: ' + message
+
+
+        })
+          let myname = "ชื่อ"
+            function sayhello() {
+                alert("Welcome" )
+            }
+    </script>
+    
+</body>
+</html>
