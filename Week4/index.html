@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week4 - Project Overview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        /* จัดหน้าพื้นหลัง */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit */
+            background: linear-gradient(135deg, #0dc6f5 0%, #d31616 100%); /* พื้นหลังไล่สี */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ตกแต่งกล่องเนื้อหาหลัก (Card) */
+        body > div {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* เงาให้ดูลอยขึ้นมา */
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* ตกแต่งหัวข้อ */
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* จัดกลุ่มปุ่ม */
+        div > div:last-child {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+        }
+
+        /* ตกแต่งปุ่ม */
+        button {
+            padding: 12px 20px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ปุ่มที่ 1: สีฟ้า */
+        button:nth-child(1) {
+            background-color: #3498db;
+        }
+        button:nth-child(1):hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* ปุ่มที่ 2: สีเขียว */
+        button:nth-child(2) {
+            background-color: #2ecc71;
+        }
+        button:nth-child(2):hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        /* ปุ่มที่ 3: สีส้ม */
+        button:nth-child(3) {
+            background-color: #e67e22;
+        }
+        button:nth-child(3):hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Animation เล็กน้อยตอนโหลดหน้า */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1 id="greeting">สวัสดีครับคุณ [ชื่อ]</h1>
+        </div>
+        <div>
+            <button onclick="showUserInfo()">แสดงข้อมูลผู้ใช้</button>
+            <button onclick="window.location.reload()">รีเฟรชหน้า</button>
+            <button onclick="openNewWindow()">เปิดหน้าต่างใหม่</button>
+        </div>
+
+    </div>
+    <script>
+        const userName = window.prompt("กรุณากรอกชื่อของคุณ");
+        if (userName) {
+            document.getElementById("greeting").innerText = `สวัสดีคุณ ${userName}`;
+        }
+
+        function showUserInfo() {
+            const userAgent = navigator.userAgent;
+            const language = navigator.language;
+            const width = screen.width;
+            const height = screen.height;
+            alert(`ข้อมูลผู้ใช้:\nUser Agent; ${userAgent}\nLanguage; ${language}\nScreen Width; ${width}\nScreen Height; ${height}`);
+
+        }
+
+        function openNewWindow() {
+            window.open("https://www.example.com/")
+        }
+
+        //window.alert(screen.width) //width , height,avaiWidth,avilheight
+        //window.alert(navigator.platform) // .useragentบอกข้อมูลบราว์เซอร์ //.languageบอกภาษาของบราวเซอร์ //.online บอกว่าออนไลน์ไหม true/fall //.platfrom บอกว่่ามาจากไหน 
+        // const confirmedReload = window.confirm("ไป หน้าถัดไป กันไหม");
+        //  if(confirmedReload){
+        //      window.history.forward("https://google.com"); // .backกลับไปหน้าก่อน .forwardไปหน้าถัดไป goไปหน้าที่ต้องการ
+        //  }
+        //const confirmedReload = window.confirm("ไป google กันไหม");
+        // if(confirmedReload){
+        //     window.location.assign("https://google.com"); //window.location.assign เปลื่ยนหน้าแต่อยู่ในแท็ปเดิม .assignมีประวัติย้อนกลับได้ .replace มีประวัติย้อนกลับไม่ได้
+        // }
+        //window.location.reload(); เว็ปจะรีโหลดอยู่เรื่อยๆ
+        //window.alert(window.location.href) //แจ้งเตือน Url   url ปัจจุบัน
+        //const confirmedToOpenNewTab = window.confirm("ต้องการพิมพ์หน้านี้ไหม");
+        //if(confirmedToOpenNewTab){
+        //window.open("" ) ต้องการเปืดหน้านี้ไหม ใช้ if เหมือนข้างบนเหมือนกันทั้ง 3 ได้ คนละเเท็ป
+        //window.close(); //ปิดหน้าต่างแท็ปนี้ ใช้ if เหมือนข้างบนเหมือนกันทั้ง 3ได้
+        //window.print(); //ต้องการพิมพ์หน้านี้ไหม ไปที่พิมพ์ ใช้ if เหมือนข้างบนเหมือนกันทั้ง 3ได้
+        //}
+        //window.prompt("คุณชื่ออะไร") //แจ้งเตือนเหมือนอันล่างแต่มีให้เขียน
+        // const userName = window.prompt("คุณชื่ออะไร") //แจ้งเตือนอันแรกที่ให้พิมพ์
+        //if(userName){
+        //window.alert("สวัสดีครับคุณ" + userName); //ก็จะเป็นคำตอบชื่อที่เราเขียนลงไป เป็น สวัสดีครับคุณ .... 
+        //}
+        //window.alert("") เอาไว้แจ้งเตือนด้านบนตอนรีเฟซ
+        // const confirmed = window.confirm('แน่ใจหรือไหมต้องการดูหน้านี้'); //เอาไว้ถามแน่ใจรึป่าว ในการเเจ้งเตือนเว็ปด้านบน
+        //if (confirm) {
+        // window.alert('ยินดีต้อนรับสู่หน้านี้');
+        //} else {
+        //    window.alert('คุณยกเลิกการดูหน้านี้');
+        // }
+    </script>
+</body>
+
+</html>
